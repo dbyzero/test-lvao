@@ -1,0 +1,7810 @@
+openapi: 3.0.3
+info:
+  title: Munity Unified API
+  version: 1.0.0
+  description: One API to rules them all
+components:
+  schemas:
+    APIKey:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+          maxLength: 258
+        prefix:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        workspace_id:
+          type: string
+          format: uuid
+          nullable: true
+          readOnly: true
+      required:
+      - created
+      - prefix
+      - workspace_id
+    AirbyteSourceDefinition:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 2048
+        slug:
+          type: string
+          maxLength: 2048
+        source_definition_id:
+          type: string
+          maxLength: 2048
+        docker_repository:
+          type: string
+          maxLength: 2048
+        docker_image_tag:
+          type: string
+          maxLength: 2048
+        documentation_url:
+          type: string
+          maxLength: 2048
+        icon:
+          type: string
+          nullable: true
+        protocol_version:
+          type: string
+          maxLength: 2048
+        release_stage:
+          type: string
+          nullable: true
+          maxLength: 2048
+        source_type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        category:
+          type: string
+          nullable: true
+          maxLength: 2048
+        average_color:
+          type: string
+          maxLength: 2048
+        dominant_color:
+          type: string
+          maxLength: 2048
+        munity_ready:
+          type: boolean
+        needed_fields:
+          type: object
+          additionalProperties: {}
+      required:
+      - id
+    CRMCampaign:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        actual_cost:
+          type: string
+          nullable: true
+          maxLength: 2048
+        budgeted_cost:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        expected_revenue:
+          type: string
+          nullable: true
+          maxLength: 2048
+        number_of_contacts:
+          type: string
+          nullable: true
+          maxLength: 2048
+        owner_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        start_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - created
+      - id
+      - modified
+    CRMCompany:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        company_source:
+          type: string
+          nullable: true
+          maxLength: 2048
+        active:
+          type: boolean
+          nullable: true
+        annual_revenue:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_city:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_country:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_zip:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_state:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_street:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_city:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_country:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_zip:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_state:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_street:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        priority:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        fax:
+          type: string
+          nullable: true
+          maxLength: 2048
+        industry:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deleted:
+          type: boolean
+          nullable: true
+        number_of_employees:
+          type: string
+          nullable: true
+          maxLength: 2048
+        phone:
+          type: string
+          nullable: true
+          maxLength: 2048
+        photo:
+          type: string
+          nullable: true
+          maxLength: 2048
+        rating:
+          type: string
+          nullable: true
+          maxLength: 2048
+        website:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lifecycle:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - created
+      - id
+      - modified
+    CRMContact:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        city:
+          type: string
+          nullable: true
+          maxLength: 2048
+        zip:
+          type: string
+          nullable: true
+          maxLength: 2048
+        email:
+          type: string
+          nullable: true
+          maxLength: 128
+        phone:
+          type: string
+          nullable: true
+          maxLength: 2048
+        state:
+          type: string
+          nullable: true
+          maxLength: 2048
+        degree:
+          type: string
+          nullable: true
+          maxLength: 512
+        gender:
+          type: string
+          nullable: true
+          maxLength: 2048
+        address:
+          type: string
+          nullable: true
+          maxLength: 2048
+        country:
+          type: string
+          nullable: true
+          maxLength: 2048
+        jobtitle:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lastname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        firstname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        industry:
+          type: string
+          nullable: true
+          maxLength: 2048
+        department:
+          type: string
+          nullable: true
+          maxLength: 2048
+        date_of_birth:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lifecycle:
+          type: string
+          nullable: true
+          maxLength: 2048
+        fullname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        photo:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deleted:
+          type: string
+          nullable: true
+          maxLength: 2048
+        fax:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        crm_source:
+          type: string
+          nullable: true
+          maxLength: 2048
+        languages:
+          type: string
+          nullable: true
+          maxLength: 2048
+        revenue:
+          type: string
+          nullable: true
+          maxLength: 2048
+        company:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    CRMContactList:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        contactlistmembership:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deleted:
+          type: boolean
+          nullable: true
+        campaign_id:
+          type: string
+          nullable: true
+        size:
+          type: string
+          nullable: true
+      required:
+      - contactlistmembership
+      - created
+      - id
+      - modified
+    CRMContactListMembership:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        contact:
+          $ref: '#/components/schemas/CRMContact'
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        contact_list:
+          type: string
+          nullable: true
+      required:
+      - contact
+      - created
+      - external_id
+      - id
+      - modified
+      - source
+    CRMDeal:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        company_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contact_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        archived:
+          type: boolean
+          nullable: true
+        amount:
+          type: string
+          nullable: true
+          maxLength: 2048
+        closed_reason:
+          type: string
+          nullable: true
+          maxLength: 2048
+        closed_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        stage:
+          type: string
+          nullable: true
+          maxLength: 2048
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deal_source:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_by:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_at:
+          type: string
+          nullable: true
+          maxLength: 2048
+        is_closed:
+          type: boolean
+          nullable: true
+        is_won:
+          type: boolean
+          nullable: true
+        mrr:
+          type: string
+          nullable: true
+          maxLength: 2048
+        priority:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - created
+      - id
+      - modified
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirbyteSourceDefinition'
+        name:
+          type: string
+          maxLength: 2048
+        slug:
+          type: string
+          maxLength: 2048
+        icon:
+          type: string
+          maxLength: 2048
+        color:
+          type: string
+          maxLength: 2048
+        weight:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+      required:
+      - id
+      - sources
+    Customer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        name:
+          type: string
+          maxLength: 100
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        airbyte_destination_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        db_connection:
+          type: string
+          format: uuid
+          nullable: true
+        marketplace:
+          type: string
+          format: uuid
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+      - name
+    EcommerceProduct:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 2048
+        short_description:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        reference:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        url:
+          type: string
+          nullable: true
+        variations:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        quantity_available:
+          type: number
+          format: double
+          nullable: true
+        minimal_quantity:
+          type: number
+          format: double
+          nullable: true
+        stock_status:
+          type: string
+          nullable: true
+        images:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        tags:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        purchasable:
+          type: boolean
+          nullable: true
+        regular_price:
+          type: number
+          format: double
+          nullable: true
+        sale_price:
+          type: string
+          nullable: true
+        price:
+          type: number
+          format: double
+          nullable: true
+        total_sales:
+          type: number
+          format: double
+          nullable: true
+        on_sale:
+          type: boolean
+          nullable: true
+        rate:
+          type: string
+          nullable: true
+        slug:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        virtual:
+          type: boolean
+          nullable: true
+        weight:
+          type: number
+          format: double
+          nullable: true
+        ean13:
+          type: string
+          nullable: true
+        height:
+          type: string
+          nullable: true
+        width:
+          type: string
+          nullable: true
+        location:
+          type: string
+          nullable: true
+        manufacturer_name:
+          type: string
+          nullable: true
+        unity:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    EcommerceProductCustomField:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 2048
+        required:
+          type: boolean
+          nullable: true
+        is_deleted:
+          type: boolean
+          nullable: true
+        rate:
+          type: number
+          format: double
+          nullable: true
+        sku:
+          type: string
+          nullable: true
+        slug:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        virtual:
+          type: number
+          format: double
+          nullable: true
+        weight:
+          type: number
+          format: double
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        product:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    File:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        file:
+          type: string
+          format: uri
+        type:
+          type: string
+          maxLength: 32
+        size:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created
+      - file
+      - id
+      - modified
+    GeolocationBicycleStation:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        zipcode:
+          type: string
+          nullable: true
+          maxLength: 255
+        geolocation:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        capacity:
+          type: string
+          nullable: true
+          maxLength: 255
+        cargo_capacity:
+          type: string
+          nullable: true
+          maxLength: 255
+        bicycle_parking:
+          type: string
+          nullable: true
+          maxLength: 255
+        furniture:
+          type: string
+          nullable: true
+          maxLength: 255
+        access:
+          type: string
+          nullable: true
+          maxLength: 255
+        fee:
+          type: boolean
+          nullable: true
+        protection:
+          type: string
+          nullable: true
+          maxLength: 255
+        covered:
+          type: boolean
+          nullable: true
+        surveillance:
+          type: boolean
+          nullable: true
+        lit:
+          type: boolean
+          nullable: true
+        website:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        start_date:
+          type: string
+          nullable: true
+          maxLength: 255
+        owner:
+          type: string
+          nullable: true
+          maxLength: 255
+        operator:
+          type: string
+          nullable: true
+          maxLength: 255
+        note:
+          type: string
+          nullable: true
+          maxLength: 255
+      required:
+      - created
+      - external_id
+      - id
+      - modified
+      - source
+    HRISUser:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        email:
+          type: string
+          nullable: true
+          maxLength: 2048
+        firstname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lastname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        phone_number:
+          type: string
+          nullable: true
+          maxLength: 128
+        language:
+          type: string
+          nullable: true
+          maxLength: 2048
+        birth_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+        legal_entity_name:
+          type: string
+          nullable: true
+          maxLength: 512
+        manager_email:
+          type: string
+          nullable: true
+          maxLength: 2048
+        job_title:
+          type: string
+          nullable: true
+          maxLength: 2048
+        team:
+          type: string
+          nullable: true
+          maxLength: 2048
+        country:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contract_start_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contract_end_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+        gender:
+          type: string
+          nullable: true
+          maxLength: 2048
+        business_unit:
+          type: string
+          nullable: true
+          maxLength: 2048
+        employee_number:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contract_type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        socio_professional_category:
+          type: string
+          nullable: true
+          maxLength: 2048
+        state:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - created
+      - id
+      - modified
+    Integration:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        current_pipeline:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        connector_type:
+          type: string
+          maxLength: 256
+        name:
+          type: string
+          nullable: true
+          maxLength: 512
+        error_message:
+          type: string
+          nullable: true
+          maxLength: 512
+        ws_room:
+          type: string
+          nullable: true
+          maxLength: 512
+        ready:
+          type: boolean
+        hashvalue:
+          type: string
+          nullable: true
+          maxLength: 255
+        state:
+          type: string
+          nullable: true
+          maxLength: 255
+        external_state:
+          type: string
+          nullable: true
+          maxLength: 255
+        isOauth:
+          type: boolean
+        airbyte_source_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        airbyte_connection_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        number_of_sync:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        metadata:
+          type: object
+          additionalProperties: {}
+        last_import_done:
+          type: string
+          format: date-time
+          nullable: true
+        sync_frequency_in_second:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        status:
+          type: string
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        customer:
+          type: string
+          format: uuid
+        marketplace:
+          type: string
+          format: uuid
+          nullable: true
+      required:
+      - created
+      - current_pipeline
+      - id
+      - modified
+    MarketingActivity:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        action:
+          type: string
+          nullable: true
+          maxLength: 2048
+        email:
+          type: string
+          nullable: true
+          maxLength: 2048
+        ip:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_time:
+          type: string
+          format: date-time
+          nullable: true
+        campaign:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    MarketingCampaign:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        title:
+          type: string
+          nullable: true
+          maxLength: 2048
+        reply_to:
+          type: string
+          nullable: true
+          maxLength: 2048
+        from_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        preview_text:
+          type: string
+          nullable: true
+          maxLength: 2048
+        subject:
+          type: string
+          nullable: true
+          maxLength: 2048
+        send_time:
+          type: string
+          format: date-time
+          nullable: true
+        recipient_list_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_time:
+          type: string
+          format: date-time
+          nullable: true
+        emails_sent:
+          type: string
+          nullable: true
+          maxLength: 2048
+        report_summary:
+          type: string
+          nullable: true
+          maxLength: 2048
+        parent_campaign_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - created
+      - id
+      - modified
+    MarketingList:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        stats:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contact:
+          type: string
+          nullable: true
+          maxLength: 2048
+        rating:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_date:
+          type: string
+          format: date-time
+          nullable: true
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - created
+      - id
+      - modified
+    MarketingReport:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        event_hour:
+          type: string
+          format: date-time
+          nullable: true
+        campaign_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        impressions:
+          type: string
+          nullable: true
+          maxLength: 2048
+        campaign_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        campaign_start_date:
+          type: string
+          format: date-time
+          nullable: true
+        campaign_end_date:
+          type: string
+          format: date-time
+          nullable: true
+        campaign_external_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        campaign_status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        site_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        site_url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        image_weight:
+          type: string
+          nullable: true
+          maxLength: 2048
+        video_content_duration:
+          type: string
+          nullable: true
+          maxLength: 2048
+        mobile_connection_type_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        country_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        country_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        agency_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        advertiser_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        advertiser_sales_person_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        domain:
+          type: string
+          nullable: true
+          maxLength: 2048
+        pack_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        pack_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - created
+      - id
+      - modified
+    Marketplace:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        name:
+          type: string
+          nullable: true
+          maxLength: 512
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        state:
+          type: string
+          nullable: true
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+        credentials:
+          type: object
+          additionalProperties: {}
+        webhook_url:
+          type: string
+          nullable: true
+        external_db_credentials:
+          type: object
+          additionalProperties: {}
+        database_hosted_way:
+          enum:
+          - BY_MUNITY
+          - EXTERNAL_DB
+          type: string
+        xano_api_key:
+          type: string
+          nullable: true
+        xano_instance_api_path:
+          type: string
+          nullable: true
+        xano_workspace_id:
+          type: string
+          nullable: true
+        xano_table_mapping:
+          type: object
+          additionalProperties: {}
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    MyTokenObtainPair:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
+          writeOnly: true
+      required:
+      - password
+      - username
+    PaginatedAPIKeyList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/APIKey'
+    PaginatedAirbyteSourceDefinitionList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirbyteSourceDefinition'
+    PaginatedCRMCampaignList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CRMCampaign'
+    PaginatedCRMCompanyList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CRMCompany'
+    PaginatedCRMContactList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CRMContact'
+    PaginatedCRMContactListList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CRMContactList'
+    PaginatedCRMContactListMembershipList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CRMContactListMembership'
+    PaginatedCRMDealList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CRMDeal'
+    PaginatedCategoryList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Category'
+    PaginatedCustomerList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Customer'
+    PaginatedEcommerceProductCustomFieldList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/EcommerceProductCustomField'
+    PaginatedEcommerceProductList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/EcommerceProduct'
+    PaginatedFileList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/File'
+    PaginatedGeolocationBicycleStationList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/GeolocationBicycleStation'
+    PaginatedHRISUserList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/HRISUser'
+    PaginatedIntegrationList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Integration'
+    PaginatedMarketingActivityList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketingActivity'
+    PaginatedMarketingCampaignList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketingCampaign'
+    PaginatedMarketingListList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketingList'
+    PaginatedMarketingReportList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/MarketingReport'
+    PaginatedMarketplaceList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Marketplace'
+    PaginatedPermissionList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    PaginatedPipelineList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pipeline'
+    PaginatedProjectManagementGroupList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectManagementGroup'
+    PaginatedProjectManagementIssueFieldList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectManagementIssueField'
+    PaginatedProjectManagementIssueList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectManagementIssue'
+    PaginatedProjectManagementIssueStatusList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectManagementIssueStatus'
+    PaginatedProjectManagementIssueTypeList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectManagementIssueType'
+    PaginatedProjectManagementMilestoneList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectManagementMilestone'
+    PaginatedProjectManagementProjectList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectManagementProject'
+    PaginatedProjectManagementUserList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/ProjectManagementUser'
+    PaginatedRoleList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Role'
+    PaginatedSettingsList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Settings'
+    PaginatedSocialNetworkUserList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/SocialNetworkUser'
+    PaginatedUserInvitationList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserInvitation'
+    PaginatedUserList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/User'
+    PaginatedWebhookList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Webhook'
+    PaginatedWorkspaceList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=4
+        previous:
+          type: string
+          nullable: true
+          format: uri
+          example: http://api.example.org/accounts/?page=2
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/Workspace'
+    PatchedAPIKey:
+      type: object
+      properties:
+        name:
+          type: string
+          nullable: true
+          maxLength: 258
+        prefix:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        workspace_id:
+          type: string
+          format: uuid
+          nullable: true
+          readOnly: true
+    PatchedAirbyteSourceDefinition:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          maxLength: 2048
+        slug:
+          type: string
+          maxLength: 2048
+        source_definition_id:
+          type: string
+          maxLength: 2048
+        docker_repository:
+          type: string
+          maxLength: 2048
+        docker_image_tag:
+          type: string
+          maxLength: 2048
+        documentation_url:
+          type: string
+          maxLength: 2048
+        icon:
+          type: string
+          nullable: true
+        protocol_version:
+          type: string
+          maxLength: 2048
+        release_stage:
+          type: string
+          nullable: true
+          maxLength: 2048
+        source_type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        category:
+          type: string
+          nullable: true
+          maxLength: 2048
+        average_color:
+          type: string
+          maxLength: 2048
+        dominant_color:
+          type: string
+          maxLength: 2048
+        munity_ready:
+          type: boolean
+        needed_fields:
+          type: object
+          additionalProperties: {}
+    PatchedCRMCampaign:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        actual_cost:
+          type: string
+          nullable: true
+          maxLength: 2048
+        budgeted_cost:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        expected_revenue:
+          type: string
+          nullable: true
+          maxLength: 2048
+        number_of_contacts:
+          type: string
+          nullable: true
+          maxLength: 2048
+        owner_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        start_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+    PatchedCRMCompany:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        company_source:
+          type: string
+          nullable: true
+          maxLength: 2048
+        active:
+          type: boolean
+          nullable: true
+        annual_revenue:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_city:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_country:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_zip:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_state:
+          type: string
+          nullable: true
+          maxLength: 2048
+        billing_address_street:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_city:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_country:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_zip:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_state:
+          type: string
+          nullable: true
+          maxLength: 2048
+        shipping_address_street:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        priority:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        fax:
+          type: string
+          nullable: true
+          maxLength: 2048
+        industry:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deleted:
+          type: boolean
+          nullable: true
+        number_of_employees:
+          type: string
+          nullable: true
+          maxLength: 2048
+        phone:
+          type: string
+          nullable: true
+          maxLength: 2048
+        photo:
+          type: string
+          nullable: true
+          maxLength: 2048
+        rating:
+          type: string
+          nullable: true
+          maxLength: 2048
+        website:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lifecycle:
+          type: string
+          nullable: true
+          maxLength: 2048
+    PatchedCRMContact:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        city:
+          type: string
+          nullable: true
+          maxLength: 2048
+        zip:
+          type: string
+          nullable: true
+          maxLength: 2048
+        email:
+          type: string
+          nullable: true
+          maxLength: 128
+        phone:
+          type: string
+          nullable: true
+          maxLength: 2048
+        state:
+          type: string
+          nullable: true
+          maxLength: 2048
+        degree:
+          type: string
+          nullable: true
+          maxLength: 512
+        gender:
+          type: string
+          nullable: true
+          maxLength: 2048
+        address:
+          type: string
+          nullable: true
+          maxLength: 2048
+        country:
+          type: string
+          nullable: true
+          maxLength: 2048
+        jobtitle:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lastname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        firstname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        industry:
+          type: string
+          nullable: true
+          maxLength: 2048
+        department:
+          type: string
+          nullable: true
+          maxLength: 2048
+        date_of_birth:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lifecycle:
+          type: string
+          nullable: true
+          maxLength: 2048
+        fullname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        photo:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deleted:
+          type: string
+          nullable: true
+          maxLength: 2048
+        fax:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        crm_source:
+          type: string
+          nullable: true
+          maxLength: 2048
+        languages:
+          type: string
+          nullable: true
+          maxLength: 2048
+        revenue:
+          type: string
+          nullable: true
+          maxLength: 2048
+        company:
+          type: string
+          nullable: true
+    PatchedCRMContactList:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        contactlistmembership:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deleted:
+          type: boolean
+          nullable: true
+        campaign_id:
+          type: string
+          nullable: true
+        size:
+          type: string
+          nullable: true
+    PatchedCRMContactListMembership:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        contact:
+          $ref: '#/components/schemas/CRMContact'
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        contact_list:
+          type: string
+          nullable: true
+    PatchedCRMDeal:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        company_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contact_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        archived:
+          type: boolean
+          nullable: true
+        amount:
+          type: string
+          nullable: true
+          maxLength: 2048
+        closed_reason:
+          type: string
+          nullable: true
+          maxLength: 2048
+        closed_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        stage:
+          type: string
+          nullable: true
+          maxLength: 2048
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deal_source:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_by:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_at:
+          type: string
+          nullable: true
+          maxLength: 2048
+        is_closed:
+          type: boolean
+          nullable: true
+        is_won:
+          type: boolean
+          nullable: true
+        mrr:
+          type: string
+          nullable: true
+          maxLength: 2048
+        priority:
+          type: string
+          nullable: true
+          maxLength: 2048
+    PatchedCategory:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        sources:
+          type: array
+          items:
+            $ref: '#/components/schemas/AirbyteSourceDefinition'
+        name:
+          type: string
+          maxLength: 2048
+        slug:
+          type: string
+          maxLength: 2048
+        icon:
+          type: string
+          maxLength: 2048
+        color:
+          type: string
+          maxLength: 2048
+        weight:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+    PatchedCustomer:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        name:
+          type: string
+          maxLength: 100
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        airbyte_destination_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        db_connection:
+          type: string
+          format: uuid
+          nullable: true
+        marketplace:
+          type: string
+          format: uuid
+          nullable: true
+    PatchedEcommerceProduct:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 2048
+        short_description:
+          type: string
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        reference:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        url:
+          type: string
+          nullable: true
+        variations:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        quantity_available:
+          type: number
+          format: double
+          nullable: true
+        minimal_quantity:
+          type: number
+          format: double
+          nullable: true
+        stock_status:
+          type: string
+          nullable: true
+        images:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        tags:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        purchasable:
+          type: boolean
+          nullable: true
+        regular_price:
+          type: number
+          format: double
+          nullable: true
+        sale_price:
+          type: string
+          nullable: true
+        price:
+          type: number
+          format: double
+          nullable: true
+        total_sales:
+          type: number
+          format: double
+          nullable: true
+        on_sale:
+          type: boolean
+          nullable: true
+        rate:
+          type: string
+          nullable: true
+        slug:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        virtual:
+          type: boolean
+          nullable: true
+        weight:
+          type: number
+          format: double
+          nullable: true
+        ean13:
+          type: string
+          nullable: true
+        height:
+          type: string
+          nullable: true
+        width:
+          type: string
+          nullable: true
+        location:
+          type: string
+          nullable: true
+        manufacturer_name:
+          type: string
+          nullable: true
+        unity:
+          type: string
+          nullable: true
+    PatchedEcommerceProductCustomField:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 2048
+        required:
+          type: boolean
+          nullable: true
+        is_deleted:
+          type: boolean
+          nullable: true
+        rate:
+          type: number
+          format: double
+          nullable: true
+        sku:
+          type: string
+          nullable: true
+        slug:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+        virtual:
+          type: number
+          format: double
+          nullable: true
+        weight:
+          type: number
+          format: double
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        product:
+          type: string
+          nullable: true
+    PatchedFile:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 255
+        file:
+          type: string
+          format: uri
+        type:
+          type: string
+          maxLength: 32
+        size:
+          type: integer
+          maximum: 9223372036854775807
+          minimum: -9223372036854775808
+          format: int64
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedGeolocationBicycleStation:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        zipcode:
+          type: string
+          nullable: true
+          maxLength: 255
+        geolocation:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        capacity:
+          type: string
+          nullable: true
+          maxLength: 255
+        cargo_capacity:
+          type: string
+          nullable: true
+          maxLength: 255
+        bicycle_parking:
+          type: string
+          nullable: true
+          maxLength: 255
+        furniture:
+          type: string
+          nullable: true
+          maxLength: 255
+        access:
+          type: string
+          nullable: true
+          maxLength: 255
+        fee:
+          type: boolean
+          nullable: true
+        protection:
+          type: string
+          nullable: true
+          maxLength: 255
+        covered:
+          type: boolean
+          nullable: true
+        surveillance:
+          type: boolean
+          nullable: true
+        lit:
+          type: boolean
+          nullable: true
+        website:
+          type: string
+          format: uri
+          nullable: true
+          maxLength: 200
+        start_date:
+          type: string
+          nullable: true
+          maxLength: 255
+        owner:
+          type: string
+          nullable: true
+          maxLength: 255
+        operator:
+          type: string
+          nullable: true
+          maxLength: 255
+        note:
+          type: string
+          nullable: true
+          maxLength: 255
+    PatchedHRISUser:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        email:
+          type: string
+          nullable: true
+          maxLength: 2048
+        firstname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lastname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        phone_number:
+          type: string
+          nullable: true
+          maxLength: 128
+        language:
+          type: string
+          nullable: true
+          maxLength: 2048
+        birth_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+        legal_entity_name:
+          type: string
+          nullable: true
+          maxLength: 512
+        manager_email:
+          type: string
+          nullable: true
+          maxLength: 2048
+        job_title:
+          type: string
+          nullable: true
+          maxLength: 2048
+        team:
+          type: string
+          nullable: true
+          maxLength: 2048
+        country:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contract_start_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contract_end_date:
+          type: string
+          nullable: true
+          maxLength: 2048
+        gender:
+          type: string
+          nullable: true
+          maxLength: 2048
+        business_unit:
+          type: string
+          nullable: true
+          maxLength: 2048
+        employee_number:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contract_type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        socio_professional_category:
+          type: string
+          nullable: true
+          maxLength: 2048
+        state:
+          type: string
+          nullable: true
+          maxLength: 2048
+    PatchedIntegration:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        current_pipeline:
+          type: string
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        connector_type:
+          type: string
+          maxLength: 256
+        name:
+          type: string
+          nullable: true
+          maxLength: 512
+        error_message:
+          type: string
+          nullable: true
+          maxLength: 512
+        ws_room:
+          type: string
+          nullable: true
+          maxLength: 512
+        ready:
+          type: boolean
+        hashvalue:
+          type: string
+          nullable: true
+          maxLength: 255
+        state:
+          type: string
+          nullable: true
+          maxLength: 255
+        external_state:
+          type: string
+          nullable: true
+          maxLength: 255
+        isOauth:
+          type: boolean
+        airbyte_source_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        airbyte_connection_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        number_of_sync:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        metadata:
+          type: object
+          additionalProperties: {}
+        last_import_done:
+          type: string
+          format: date-time
+          nullable: true
+        sync_frequency_in_second:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        status:
+          type: string
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        customer:
+          type: string
+          format: uuid
+        marketplace:
+          type: string
+          format: uuid
+          nullable: true
+    PatchedMarketingActivity:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        action:
+          type: string
+          nullable: true
+          maxLength: 2048
+        email:
+          type: string
+          nullable: true
+          maxLength: 2048
+        ip:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_time:
+          type: string
+          format: date-time
+          nullable: true
+        campaign:
+          type: string
+          nullable: true
+    PatchedMarketingCampaign:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        type:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        title:
+          type: string
+          nullable: true
+          maxLength: 2048
+        reply_to:
+          type: string
+          nullable: true
+          maxLength: 2048
+        from_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        preview_text:
+          type: string
+          nullable: true
+          maxLength: 2048
+        subject:
+          type: string
+          nullable: true
+          maxLength: 2048
+        send_time:
+          type: string
+          format: date-time
+          nullable: true
+        recipient_list_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_time:
+          type: string
+          format: date-time
+          nullable: true
+        emails_sent:
+          type: string
+          nullable: true
+          maxLength: 2048
+        report_summary:
+          type: string
+          nullable: true
+          maxLength: 2048
+        parent_campaign_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+    PatchedMarketingList:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        stats:
+          type: string
+          nullable: true
+          maxLength: 2048
+        contact:
+          type: string
+          nullable: true
+          maxLength: 2048
+        rating:
+          type: string
+          nullable: true
+          maxLength: 2048
+        created_date:
+          type: string
+          format: date-time
+          nullable: true
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+    PatchedMarketingReport:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        event_hour:
+          type: string
+          format: date-time
+          nullable: true
+        campaign_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        impressions:
+          type: string
+          nullable: true
+          maxLength: 2048
+        campaign_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        campaign_start_date:
+          type: string
+          format: date-time
+          nullable: true
+        campaign_end_date:
+          type: string
+          format: date-time
+          nullable: true
+        campaign_external_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        campaign_status:
+          type: string
+          nullable: true
+          maxLength: 2048
+        site_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        site_url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        image_weight:
+          type: string
+          nullable: true
+          maxLength: 2048
+        video_content_duration:
+          type: string
+          nullable: true
+          maxLength: 2048
+        mobile_connection_type_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        country_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        country_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        agency_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        advertiser_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        advertiser_sales_person_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+        domain:
+          type: string
+          nullable: true
+          maxLength: 2048
+        pack_id:
+          type: string
+          nullable: true
+          maxLength: 2048
+        pack_name:
+          type: string
+          nullable: true
+          maxLength: 2048
+    PatchedMarketplace:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        name:
+          type: string
+          nullable: true
+          maxLength: 512
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        state:
+          type: string
+          nullable: true
+          maxLength: 255
+        metadata:
+          type: object
+          additionalProperties: {}
+        credentials:
+          type: object
+          additionalProperties: {}
+        webhook_url:
+          type: string
+          nullable: true
+        external_db_credentials:
+          type: object
+          additionalProperties: {}
+        database_hosted_way:
+          enum:
+          - BY_MUNITY
+          - EXTERNAL_DB
+          type: string
+        xano_api_key:
+          type: string
+          nullable: true
+        xano_instance_api_path:
+          type: string
+          nullable: true
+        xano_workspace_id:
+          type: string
+          nullable: true
+        xano_table_mapping:
+          type: object
+          additionalProperties: {}
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+    PatchedPermission:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        ressource:
+          $ref: '#/components/schemas/Ressource'
+        action:
+          type: string
+          maxLength: 100
+    PatchedPipeline:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        end_date:
+          type: string
+          format: date-time
+          nullable: true
+        status:
+          type: string
+        error_message:
+          type: string
+          nullable: true
+        airbyte_job_id:
+          type: string
+          nullable: true
+        sync_timestamp:
+          type: string
+          maxLength: 255
+        ttl:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          title: TTL before been killed
+        airbyte_log:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        integration:
+          type: string
+          format: uuid
+    PatchedProjectManagementGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deleted:
+          type: boolean
+          nullable: true
+        archived:
+          type: boolean
+          nullable: true
+        project:
+          type: string
+          nullable: true
+    PatchedProjectManagementIssue:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        priority:
+          type: string
+          nullable: true
+          maxLength: 512
+        severity:
+          type: string
+          nullable: true
+          maxLength: 512
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        description:
+          type: string
+        is_milestone:
+          type: boolean
+          nullable: true
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        complete:
+          type: boolean
+          nullable: true
+        tags:
+          type: string
+          nullable: true
+          maxLength: 2048
+        creator:
+          type: string
+          nullable: true
+        assignee:
+          type: string
+          nullable: true
+        project:
+          type: string
+          nullable: true
+        group:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+    PatchedProjectManagementIssueField:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+          maxLength: 255
+        path:
+          type: string
+          nullable: true
+          maxLength: 255
+        issue_type:
+          type: string
+          nullable: true
+        project:
+          type: string
+          nullable: true
+    PatchedProjectManagementIssueStatus:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        default:
+          type: boolean
+          nullable: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        meta_status:
+          type: string
+          nullable: true
+          maxLength: 1024
+        color:
+          type: string
+          nullable: true
+          maxLength: 1024
+        order:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        project:
+          type: string
+          nullable: true
+    PatchedProjectManagementIssueType:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        is_sub_task:
+          type: boolean
+          nullable: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        description:
+          type: string
+          nullable: true
+          maxLength: 1024
+        scope:
+          type: string
+          nullable: true
+          maxLength: 1024
+        icon:
+          type: string
+          nullable: true
+          maxLength: 2048
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        project:
+          type: string
+          nullable: true
+    PatchedProjectManagementMilestone:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        begin_date:
+          type: string
+          format: date
+          nullable: true
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        status:
+          type: string
+          nullable: true
+          maxLength: 255
+        project:
+          type: string
+          nullable: true
+        creator:
+          type: string
+          nullable: true
+    PatchedProjectManagementProject:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 255
+        folder:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 255
+        private:
+          type: boolean
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        creation_date:
+          type: string
+          format: date
+          nullable: true
+        begin_date:
+          type: string
+          format: date
+          nullable: true
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        owner:
+          type: string
+          nullable: true
+    PatchedProjectManagementUser:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        email:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        name:
+          type: string
+          nullable: true
+          maxLength: 512
+        firstname:
+          type: string
+          nullable: true
+          maxLength: 255
+        lastname:
+          type: string
+          nullable: true
+          maxLength: 255
+        title:
+          type: string
+          nullable: true
+          maxLength: 255
+        roles:
+          type: string
+          nullable: true
+          maxLength: 2048
+        company_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        phone:
+          type: string
+          nullable: true
+          maxLength: 128
+        timezone:
+          type: string
+          nullable: true
+          maxLength: 64
+        active:
+          type: boolean
+        avatar:
+          type: string
+          nullable: true
+          maxLength: 2048
+    PatchedRole:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+    PatchedSettings:
+      type: object
+      properties:
+        key:
+          type: string
+          maxLength: 100
+        value:
+          type: object
+          additionalProperties: {}
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedSocialNetworkUser:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        email:
+          type: string
+          nullable: true
+          maxLength: 128
+        phone:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lastname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        firstname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        fullname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        all_emails:
+          type: string
+          nullable: true
+          maxLength: 2048
+        all_phones:
+          type: string
+          nullable: true
+          maxLength: 2048
+        avatar:
+          type: string
+          nullable: true
+          maxLength: 2048
+    PatchedUser:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        avatar:
+          type: string
+          format: uuid
+          nullable: true
+        is_superuser:
+          type: boolean
+          title: Superuser status
+          description: Designates that this user has all permissions without explicitly
+            assigning them.
+        has_overmind_access:
+          type: boolean
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        user_role_workspaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRoleWorkspace'
+        password:
+          type: string
+        phone_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        informations:
+          type: object
+          additionalProperties: {}
+        has_view_welcome_video:
+          type: boolean
+    PatchedUserInvitation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        email:
+          type: string
+          maxLength: 2048
+        token:
+          type: string
+          maxLength: 4096
+        expiration_date:
+          type: string
+          format: date
+        status:
+          type: string
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+    PatchedWebhook:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        message:
+          type: string
+        payload:
+          type: object
+          additionalProperties: {}
+        status:
+          enum:
+          - WAITING
+          - SUCCESS
+          - ERROR
+          - NOT SEND
+          type: string
+        response:
+          type: string
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        integration:
+          type: string
+          format: uuid
+          nullable: true
+        marketplace:
+          type: string
+          format: uuid
+          nullable: true
+    PatchedWorkspace:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 258
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        informations:
+          type: object
+          additionalProperties: {}
+        credentials:
+          type: object
+          additionalProperties: {}
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        disabled:
+          type: boolean
+        public_key:
+          type: string
+          nullable: true
+        webhook_url:
+          type: string
+          nullable: true
+        icon:
+          type: string
+          format: uuid
+          nullable: true
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        external_db_credentials:
+          type: object
+          additionalProperties: {}
+        database_hosted_way:
+          type: string
+    Permission:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        ressource:
+          $ref: '#/components/schemas/Ressource'
+        action:
+          type: string
+          maxLength: 100
+      required:
+      - action
+      - id
+      - ressource
+    Pipeline:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        end_date:
+          type: string
+          format: date-time
+          nullable: true
+        status:
+          type: string
+        error_message:
+          type: string
+          nullable: true
+        airbyte_job_id:
+          type: string
+          nullable: true
+        sync_timestamp:
+          type: string
+          maxLength: 255
+        ttl:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          title: TTL before been killed
+        airbyte_log:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        integration:
+          type: string
+          format: uuid
+      required:
+      - created
+      - id
+      - integration
+      - modified
+    ProjectManagementGroup:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        deleted:
+          type: boolean
+          nullable: true
+        archived:
+          type: boolean
+          nullable: true
+        project:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    ProjectManagementIssue:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        priority:
+          type: string
+          nullable: true
+          maxLength: 512
+        severity:
+          type: string
+          nullable: true
+          maxLength: 512
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        description:
+          type: string
+        is_milestone:
+          type: boolean
+          nullable: true
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        complete:
+          type: boolean
+          nullable: true
+        tags:
+          type: string
+          nullable: true
+          maxLength: 2048
+        creator:
+          type: string
+          nullable: true
+        assignee:
+          type: string
+          nullable: true
+        project:
+          type: string
+          nullable: true
+        group:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+        status:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    ProjectManagementIssueField:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 255
+        description:
+          type: string
+          nullable: true
+        type:
+          type: string
+          nullable: true
+          maxLength: 255
+        path:
+          type: string
+          nullable: true
+          maxLength: 255
+        issue_type:
+          type: string
+          nullable: true
+        project:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+      - name
+    ProjectManagementIssueStatus:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        default:
+          type: boolean
+          nullable: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        meta_status:
+          type: string
+          nullable: true
+          maxLength: 1024
+        color:
+          type: string
+          nullable: true
+          maxLength: 1024
+        order:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+        project:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    ProjectManagementIssueType:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        is_sub_task:
+          type: boolean
+          nullable: true
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        description:
+          type: string
+          nullable: true
+          maxLength: 1024
+        scope:
+          type: string
+          nullable: true
+          maxLength: 1024
+        icon:
+          type: string
+          nullable: true
+          maxLength: 2048
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        project:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    ProjectManagementMilestone:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        description:
+          type: string
+        name:
+          type: string
+          nullable: true
+          maxLength: 1024
+        begin_date:
+          type: string
+          format: date
+          nullable: true
+        due_date:
+          type: string
+          format: date
+          nullable: true
+        status:
+          type: string
+          nullable: true
+          maxLength: 255
+        project:
+          type: string
+          nullable: true
+        creator:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    ProjectManagementProject:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        name:
+          type: string
+          maxLength: 255
+        folder:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        status:
+          type: string
+          nullable: true
+          maxLength: 255
+        private:
+          type: boolean
+          nullable: true
+        description:
+          type: string
+          nullable: true
+        creation_date:
+          type: string
+          format: date
+          nullable: true
+        begin_date:
+          type: string
+          format: date
+          nullable: true
+        end_date:
+          type: string
+          format: date
+          nullable: true
+        owner:
+          type: string
+          nullable: true
+      required:
+      - created
+      - id
+      - modified
+    ProjectManagementUser:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        email:
+          type: string
+          nullable: true
+          maxLength: 255
+        url:
+          type: string
+          nullable: true
+          maxLength: 2048
+        name:
+          type: string
+          nullable: true
+          maxLength: 512
+        firstname:
+          type: string
+          nullable: true
+          maxLength: 255
+        lastname:
+          type: string
+          nullable: true
+          maxLength: 255
+        title:
+          type: string
+          nullable: true
+          maxLength: 255
+        roles:
+          type: string
+          nullable: true
+          maxLength: 2048
+        company_name:
+          type: string
+          nullable: true
+          maxLength: 255
+        phone:
+          type: string
+          nullable: true
+          maxLength: 128
+        timezone:
+          type: string
+          nullable: true
+          maxLength: 64
+        active:
+          type: boolean
+        avatar:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - created
+      - id
+      - modified
+    Ressource:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        app_label:
+          type: string
+          maxLength: 100
+        model:
+          type: string
+          title: Python model class name
+          maxLength: 100
+      required:
+      - app_label
+      - id
+      - model
+    Role:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        name:
+          type: string
+          maxLength: 50
+        permissions:
+          type: array
+          items:
+            $ref: '#/components/schemas/Permission'
+      required:
+      - id
+      - name
+      - permissions
+    Settings:
+      type: object
+      properties:
+        key:
+          type: string
+          maxLength: 100
+        value:
+          type: object
+          additionalProperties: {}
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created
+      - key
+      - modified
+      - value
+      - workspace
+    SocialNetworkUser:
+      type: object
+      properties:
+        id:
+          type: string
+          maxLength: 255
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        source:
+          type: string
+          nullable: true
+          maxLength: 255
+        integration_id:
+          type: string
+          format: uuid
+          nullable: true
+        last_raw_data:
+          type: object
+          additionalProperties: {}
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 255
+        sync_timestamp:
+          type: string
+          nullable: true
+          maxLength: 255
+        email:
+          type: string
+          nullable: true
+          maxLength: 128
+        phone:
+          type: string
+          nullable: true
+          maxLength: 2048
+        lastname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        firstname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        fullname:
+          type: string
+          nullable: true
+          maxLength: 2048
+        all_emails:
+          type: string
+          nullable: true
+          maxLength: 2048
+        all_phones:
+          type: string
+          nullable: true
+          maxLength: 2048
+        avatar:
+          type: string
+          nullable: true
+          maxLength: 2048
+      required:
+      - created
+      - id
+      - modified
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+      required:
+      - access
+      - refresh
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        username:
+          type: string
+          description: Required. 150 characters or fewer. Letters, digits and @/./+/-/_
+            only.
+          pattern: ^[\w.@+-]+$
+          maxLength: 150
+        name:
+          type: string
+          nullable: true
+          maxLength: 255
+        email:
+          type: string
+          format: email
+          title: Email address
+          maxLength: 254
+        first_name:
+          type: string
+          maxLength: 150
+        last_name:
+          type: string
+          maxLength: 150
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        avatar:
+          type: string
+          format: uuid
+          nullable: true
+        is_superuser:
+          type: boolean
+          title: Superuser status
+          description: Designates that this user has all permissions without explicitly
+            assigning them.
+        has_overmind_access:
+          type: boolean
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        user_role_workspaces:
+          type: array
+          items:
+            $ref: '#/components/schemas/UserRoleWorkspace'
+        password:
+          type: string
+        phone_number:
+          type: string
+          nullable: true
+          maxLength: 20
+        informations:
+          type: object
+          additionalProperties: {}
+        has_view_welcome_video:
+          type: boolean
+      required:
+      - created
+      - id
+      - modified
+      - user_role_workspaces
+      - username
+    UserInvitation:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        email:
+          type: string
+          maxLength: 2048
+        token:
+          type: string
+          maxLength: 4096
+        expiration_date:
+          type: string
+          format: date
+        status:
+          type: string
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+      required:
+      - created
+      - email
+      - expiration_date
+      - id
+      - modified
+      - token
+    UserRoleWorkspace:
+      type: object
+      properties:
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        role:
+          type: string
+          format: uuid
+      required:
+      - role
+    Webhook:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        custom_fields:
+          type: object
+          additionalProperties: {}
+        disabled:
+          type: boolean
+        message:
+          type: string
+        payload:
+          type: object
+          additionalProperties: {}
+        status:
+          enum:
+          - WAITING
+          - SUCCESS
+          - ERROR
+          - NOT SEND
+          type: string
+        response:
+          type: string
+        workspace:
+          type: string
+          format: uuid
+          nullable: true
+        integration:
+          type: string
+          format: uuid
+          nullable: true
+        marketplace:
+          type: string
+          format: uuid
+          nullable: true
+      required:
+      - created
+      - id
+      - message
+      - modified
+    Workspace:
+      type: object
+      properties:
+        name:
+          type: string
+          maxLength: 258
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+        informations:
+          type: object
+          additionalProperties: {}
+        credentials:
+          type: object
+          additionalProperties: {}
+        modified:
+          type: string
+          format: date-time
+          readOnly: true
+        disabled:
+          type: boolean
+        public_key:
+          type: string
+          nullable: true
+        webhook_url:
+          type: string
+          nullable: true
+        icon:
+          type: string
+          format: uuid
+          nullable: true
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        external_db_credentials:
+          type: object
+          additionalProperties: {}
+        database_hosted_way:
+          type: string
+      required:
+      - created
+      - id
+      - modified
+paths:
+  /v1/api-keys/:
+    get:
+      operationId: v1_api_keys_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAPIKeyList'
+          description: ''
+    post:
+      operationId: v1_api_keys_create
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIKey'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/APIKey'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/APIKey'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKey'
+          description: ''
+  /v1/api-keys/{prefix}/:
+    get:
+      operationId: v1_api_keys_retrieve
+      parameters:
+      - in: path
+        name: prefix
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKey'
+          description: ''
+    put:
+      operationId: v1_api_keys_update
+      parameters:
+      - in: path
+        name: prefix
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/APIKey'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/APIKey'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/APIKey'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKey'
+          description: ''
+    patch:
+      operationId: v1_api_keys_partial_update
+      parameters:
+      - in: path
+        name: prefix
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedAPIKey'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedAPIKey'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedAPIKey'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/APIKey'
+          description: ''
+    delete:
+      operationId: v1_api_keys_destroy
+      parameters:
+      - in: path
+        name: prefix
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '204':
+          description: No response body
+  /v1/customers/:
+    get:
+      operationId: v1_customers_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCustomerList'
+          description: ''
+    post:
+      operationId: v1_customers_create
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-campaigns/:
+    get:
+      operationId: v1_customers_crm_campaigns_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCRMCampaignList'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-campaigns/{id}/:
+    get:
+      operationId: v1_customers_crm_campaigns_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CRMCampaign'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-companies/:
+    get:
+      operationId: v1_customers_crm_companies_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCRMCompanyList'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-companies/{id}/:
+    get:
+      operationId: v1_customers_crm_companies_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CRMCompany'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-contactlistmemberships/:
+    get:
+      operationId: v1_customers_crm_contactlistmemberships_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCRMContactListMembershipList'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-contactlistmemberships/{id}/:
+    get:
+      operationId: v1_customers_crm_contactlistmemberships_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CRMContactListMembership'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-contactlists/:
+    get:
+      operationId: v1_customers_crm_contactlists_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCRMContactListList'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-contactlists/{id}/:
+    get:
+      operationId: v1_customers_crm_contactlists_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CRMContactList'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-contacts/:
+    get:
+      operationId: v1_customers_crm_contacts_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCRMContactList'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-contacts/{id}/:
+    get:
+      operationId: v1_customers_crm_contacts_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CRMContact'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-deals/:
+    get:
+      operationId: v1_customers_crm_deals_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCRMDealList'
+          description: ''
+  /v1/customers/{your_customer_id}/crm-deals/{id}/:
+    get:
+      operationId: v1_customers_crm_deals_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CRMDeal'
+          description: ''
+  /v1/customers/{your_customer_id}/geolocation-bicycle-station/:
+    get:
+      operationId: v1_customers_geolocation_bicycle_station_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedGeolocationBicycleStationList'
+          description: ''
+  /v1/customers/{your_customer_id}/geolocation-bicycle-station/{id}/:
+    get:
+      operationId: v1_customers_geolocation_bicycle_station_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GeolocationBicycleStation'
+          description: ''
+  /v1/customers/{your_customer_id}/hris-users/:
+    get:
+      operationId: v1_customers_hris_users_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedHRISUserList'
+          description: ''
+  /v1/customers/{your_customer_id}/hris-users/{id}/:
+    get:
+      operationId: v1_customers_hris_users_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HRISUser'
+          description: ''
+  /v1/customers/{your_customer_id}/marketing-activities/:
+    get:
+      operationId: v1_customers_marketing_activities_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMarketingActivityList'
+          description: ''
+  /v1/customers/{your_customer_id}/marketing-activities/{id}/:
+    get:
+      operationId: v1_customers_marketing_activities_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketingActivity'
+          description: ''
+  /v1/customers/{your_customer_id}/marketing-campaigns/:
+    get:
+      operationId: v1_customers_marketing_campaigns_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMarketingCampaignList'
+          description: ''
+  /v1/customers/{your_customer_id}/marketing-campaigns/{id}/:
+    get:
+      operationId: v1_customers_marketing_campaigns_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketingCampaign'
+          description: ''
+  /v1/customers/{your_customer_id}/marketing-lists/:
+    get:
+      operationId: v1_customers_marketing_lists_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMarketingListList'
+          description: ''
+  /v1/customers/{your_customer_id}/marketing-lists/{id}/:
+    get:
+      operationId: v1_customers_marketing_lists_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketingList'
+          description: ''
+  /v1/customers/{your_customer_id}/marketing-reports/:
+    get:
+      operationId: v1_customers_marketing_reports_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMarketingReportList'
+          description: ''
+  /v1/customers/{your_customer_id}/marketing-reports/{id}/:
+    get:
+      operationId: v1_customers_marketing_reports_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MarketingReport'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-groups/:
+    get:
+      operationId: v1_customers_pm_groups_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementGroupList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-groups/{id}/:
+    get:
+      operationId: v1_customers_pm_groups_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementGroup'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-issue-fields/:
+    get:
+      operationId: v1_customers_pm_issue_fields_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementIssueFieldList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-issue-fields/{id}/:
+    get:
+      operationId: v1_customers_pm_issue_fields_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementIssueField'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-issue-status/:
+    get:
+      operationId: v1_customers_pm_issue_status_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementIssueStatusList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-issue-status/{id}/:
+    get:
+      operationId: v1_customers_pm_issue_status_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementIssueStatus'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-issue-types/:
+    get:
+      operationId: v1_customers_pm_issue_types_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementIssueTypeList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-issue-types/{id}/:
+    get:
+      operationId: v1_customers_pm_issue_types_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementIssueType'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-issues/:
+    get:
+      operationId: v1_customers_pm_issues_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementIssueList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-issues/{id}/:
+    get:
+      operationId: v1_customers_pm_issues_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementIssue'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-milestones/:
+    get:
+      operationId: v1_customers_pm_milestones_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementMilestoneList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-milestones/{id}/:
+    get:
+      operationId: v1_customers_pm_milestones_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementMilestone'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-projects/:
+    get:
+      operationId: v1_customers_pm_projects_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementProjectList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-projects/{id}/:
+    get:
+      operationId: v1_customers_pm_projects_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementProject'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-projects/{project_pk}/issues/:
+    get:
+      operationId: v1_customers_pm_projects_issues_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: path
+        name: project_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementIssueList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-projects/{project_pk}/issues/{id}/:
+    get:
+      operationId: v1_customers_pm_projects_issues_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: project_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementIssue'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-projects/{project_pk}/milestones/:
+    get:
+      operationId: v1_customers_pm_projects_milestones_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      - in: path
+        name: project_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementMilestoneList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-projects/{project_pk}/milestones/{id}/:
+    get:
+      operationId: v1_customers_pm_projects_milestones_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: project_pk
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementMilestone'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-users/:
+    get:
+      operationId: v1_customers_pm_users_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProjectManagementUserList'
+          description: ''
+  /v1/customers/{your_customer_id}/pm-users/{id}/:
+    get:
+      operationId: v1_customers_pm_users_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProjectManagementUser'
+          description: ''
+  /v1/customers/{your_customer_id}/social-network-user/:
+    get:
+      operationId: v1_customers_social_network_user_list
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedSocialNetworkUserList'
+          description: ''
+  /v1/customers/{your_customer_id}/social-network-user/{id}/:
+    get:
+      operationId: v1_customers_social_network_user_retrieve
+      description: this viewset will filter by customer and workspace
+      parameters:
+      - in: path
+        name: your_customer_id
+        schema:
+          type: string
+        required: true
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SocialNetworkUser'
+          description: ''
+  /v1/customers/{customer_id}/getdata/{table}/:
+    get:
+      operationId: v1_customers_getdata_retrieve
+      parameters:
+      - in: path
+        name: customer_id
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9-]+$
+        required: true
+      - in: path
+        name: table
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9-_]+$
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          description: No response body
+  /v1/customers/{customer_id}/getmodels/:
+    get:
+      operationId: v1_customers_getmodels_retrieve
+      parameters:
+      - in: path
+        name: customer_id
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9-]+$
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          description: No response body
+  /v1/customers/{id}/:
+    get:
+      operationId: v1_customers_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: ''
+    put:
+      operationId: v1_customers_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Customer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Customer'
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: ''
+    patch:
+      operationId: v1_customers_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomer'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomer'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedCustomer'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: ''
+    delete:
+      operationId: v1_customers_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '204':
+          description: No response body
+  /v1/customers/{id}/dbcredentials/:
+    get:
+      operationId: v1_customers_dbcredentials_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Customer'
+          description: ''
+  /v1/integration/apikey/:
+    post:
+      operationId: v1_integration_apikey_create
+      tags:
+      - integration tools
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /v1/integration/connect/{connector_type}/:
+    get:
+      operationId: v1_integration_connect_retrieve
+      parameters:
+      - in: path
+        name: connector_type
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9-]+$
+        required: true
+      tags:
+      - integration tools
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /v1/integration/get_secret/:
+    post:
+      operationId: v1_integration_get_secret_create
+      tags:
+      - integration tools
+      responses:
+        '200':
+          description: No response body
+  /v1/integration/loader/:
+    get:
+      operationId: v1_integration_loader_retrieve
+      tags:
+      - integration tools
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /v1/integration/oauth/callback/:
+    get:
+      operationId: v1_integration_oauth_callback_retrieve
+      tags:
+      - integration tools
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /v1/integration/oauth/connect/{connector_type}/:
+    get:
+      operationId: v1_integration_oauth_connect_retrieve
+      parameters:
+      - in: path
+        name: connector_type
+        schema:
+          type: string
+          pattern: ^[a-zA-Z0-9-]+$
+        required: true
+      tags:
+      - integration tools
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /v1/integration/oauth/finish_creation/:
+    get:
+      operationId: v1_integration_oauth_finish_creation_retrieve
+      tags:
+      - integration tools
+      security:
+      - {}
+      responses:
+        '200':
+          description: No response body
+  /v1/integrations/:
+    get:
+      operationId: v1_integrations_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedIntegrationList'
+          description: ''
+    post:
+      operationId: v1_integrations_create
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Integration'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Integration'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Integration'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+          description: ''
+  /v1/integrations/{id}/:
+    get:
+      operationId: v1_integrations_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+          description: ''
+    put:
+      operationId: v1_integrations_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Integration'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Integration'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Integration'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+          description: ''
+    patch:
+      operationId: v1_integrations_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedIntegration'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedIntegration'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedIntegration'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+          description: ''
+    delete:
+      operationId: v1_integrations_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '204':
+          description: No response body
+  /v1/integrations/{id}/proxy/:
+    post:
+      operationId: v1_integrations_proxy_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Integration'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Integration'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Integration'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+          description: ''
+  /v1/integrations/{id}/sync/:
+    get:
+      operationId: v1_integrations_sync_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Integration'
+          description: ''
+  /v1/workspaces/:
+    get:
+      operationId: v1_workspaces_list
+      parameters:
+      - name: page
+        required: false
+        in: query
+        description: A page number within the paginated result set.
+        schema:
+          type: integer
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedWorkspaceList'
+          description: ''
+    post:
+      operationId: v1_workspaces_create
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Workspace'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Workspace'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Workspace'
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+          description: ''
+  /v1/workspaces/{id}/:
+    get:
+      operationId: v1_workspaces_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+          description: ''
+    put:
+      operationId: v1_workspaces_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Workspace'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Workspace'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Workspace'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+          description: ''
+    patch:
+      operationId: v1_workspaces_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedWorkspace'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedWorkspace'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedWorkspace'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+          description: ''
+  /v1/workspaces/{id}/create_keys/:
+    get:
+      operationId: v1_workspaces_create_keys_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+          description: ''
+  /v1/workspaces/{id}/update_db_server_credentials/:
+    patch:
+      operationId: v1_workspaces_update_db_server_credentials_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+      tags:
+      - v1
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedWorkspace'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedWorkspace'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedWorkspace'
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Workspace'
+          description: ''
+  /v1/workspaces/register/:
+    post:
+      operationId: v1_workspaces_register_create
+      description: Return a list of all users.
+      tags:
+      - v1
+      security:
+      - {}
+      responses:
+        '201':
+          description: No response body

@@ -1,0 +1,35 @@
+html, body {
+  margin:0;
+  border:0;
+}
+
+#root {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.main {
+  height:100vh;
+  display: grid;
+  grid-template-rows: 0fr 1fr 1fr;
+}
+
+.uploader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wip {
+  width: 100%;
+}
+
+.job {
+  margin: 2rem 0px;
+}
+
+.download-data {
+  position:absolute;
+  bottom:2rem;
+  right: 2rem;
+}
