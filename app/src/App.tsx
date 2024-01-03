@@ -6,13 +6,13 @@ import { PrimeReactProvider } from 'primereact/api';
 import Uploader from './Uploader';
 import WorkInProgress from './WorkInProgress';
 import { classNames } from 'primereact/utils';
+import { getApiUrl } from './utils';
 
 function App() {
 
     const downloadData = async () => {
-        // http://api.lvao-test.dbyzero.com/v1/download-csv/
         try {
-            const response = await fetch('http://api.lvao-test.dbyzero.com/v1/download-csv/');
+            const response = await fetch(`${getApiUrl()}/v1/download-csv/`);
             if (!response.ok) {
                 throw new Error('Failed to download CSV');
             }
